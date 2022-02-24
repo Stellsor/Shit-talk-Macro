@@ -1,0 +1,31 @@
+local plr = game.Players.LocalPlayer
+repeat wait() until plr.Character
+local char = plr.Character
+
+local garbage = {
+    "Put that monkey back in the cage";
+    "just log son";
+    "EZ";
+    "Sit down son";
+    "Ima put dirt in your eye !";
+    "You gonna cry?";
+    "IMAOOF";
+    "Mad?";
+    "Trash";
+    "I didn't think being this bad was possible";
+
+
+
+}
+
+
+function TrashTalk(inputObject, gameProcessedEvent)
+    if inputObject.KeyCode == Enum.KeyCode.J and gameProcessedEvent == false then        
+game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer(
+        garbage[math.random(1,#garbage)],
+        "All"
+    )
+    end
+end
+ 
+game:GetService("UserInputService").InputBegan:connect(TrashTalk)
